@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="max-width: 450px; margin: 50px auto; padding: 30px; background: white; border: 1px solid var(--bordure); border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.05);">
+    <h2 style="color: var(--bleu-nuit); text-align: center; margin-bottom: 10px;">Connexion Portails</h2>
+    <p style="text-align: center; font-size: 14px; color: #475569; margin-bottom: 25px;">Service : <strong>{{ service.title }}</strong></p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div style="padding: 12px; background: #fee2e2; color: #991b1b; border-radius: 5px; margin-bottom: 20px; font-size: 14px;">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 8px; font-weight: bold;">Nom d'utilisateur</label>
+            <input type="text" name="username" required style="width: 100%; padding: 10px; border: 1px solid var(--bordure); border-radius: 5px;">
+        </div>
+        <div style="margin-bottom: 25px;">
+            <label style="display: block; margin-bottom: 8px; font-weight: bold;">Mot de passe</label>
+            <input type="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid var(--bordure); border-radius: 5px;">
+        </div>
+        <button type="submit" style="width: 100%; padding: 12px; background: var(--bleu); color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">S'authentifier de manière sécurisée</button>
+    </form>
+</div>
+{% endblock %}

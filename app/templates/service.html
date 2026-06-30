@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="text-align: center; margin-top: 50px; padding: 40px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px;">
+    <h1 style="color: #166534;">🔓 Accès Accordé - Espace Hautement Sécurisé</h1>
+    <h2 style="color: var(--bleu-nuit); margin-top: 20px;">{{ service.title }}</h2>
+    <p style="margin-top: 15px; font-size: 16px; color: #1e293b;">Bienvenue sur l'infrastructure confidentielle du service. Le hachage Bcrypt et les requêtes préparées garantissent l'étanchéité de cette session.</p>
+    <hr style="margin: 30px 0; border: 0; border-top: 1px solid #bbf7d0;">
+    <a href="/" style="padding: 10px 20px; background: var(--bleu-nuit); color: white; text-decoration: none; border-radius: 5px;">Déconnexion / Retour à l'accueil</a>
+</div>
+{% endblock %}

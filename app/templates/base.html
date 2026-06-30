@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TechSecure Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo-zone" style="display: flex; align-items: center; gap: 10px;">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo TechSecure" style="height: 45px; border-radius: 5px;">
+            <strong style="font-size: 18px;">TechSecure Solutions</strong>
+        </div>
+        <nav>
+            <a href="/">Accueil</a>
+        </nav>
+    </div>
+
+    <main style="padding: 40px; max-width: 1200px; margin: 0 auto;">
+        {% block content %}
+        <h1 style="text-align: center; color: var(--bleu-nuit); margin-bottom: 10px;">Nos 4 Domaines d'Expertise</h1>
+        <p style="text-align: center; margin-bottom: 40px; color: #475569;">Sélectionnez un portail pour vous authentifier.</p>
+        
+        <div class="card four">
+            {% for id, info in services.items() %}
+            <div class="service-card" style="padding: 0 0 20px 0; display: flex; flex-direction: column; justify-content: space-between;">
+                
+                <img src="{{ url_for('static', filename='images/' + info.image) }}" alt="{{ info.title }}">
+                
+                <h3 style="margin-top: 15px; font-size: 15px; padding: 0 10px; min-height: 36px; display: flex; align-items: center; justify-content: center;">
+                    {{ info.title }}
+                </h3>
+                
+                <p style="margin-top: 5px; min-height: 50px; font-size: 13px; padding: 0 15px; color: #475569;">
+                    {{ info.desc }}
+                </p>
+                
+                <div style="padding: 0 15px;">
+                    <a href="{{ url_for('login', service_id=id) }}" style="display: block; padding: 10px; background: var(--bleu); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 13px;">
+                        Accéder au portail
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endblock %}
+    </main>
+</body>
+</html>
