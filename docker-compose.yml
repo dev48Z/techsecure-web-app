@@ -15,7 +15,8 @@ services:
       MYSQL_USER: techuser
       MYSQL_PASSWORD: techpass
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.dir/init.sql
+      
+       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - techsecure_net
     # Sécurité Docker : Le port de la BDD n'est pas exposé à l'extérieur, seul le conteneur Flask y accède
